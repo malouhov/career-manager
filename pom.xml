@@ -12,7 +12,7 @@
 	<artifactId>career-manager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>career-manager</name>
-	<description>Career Manager Tool Tool using Spring Boot, Spring Data, Spring Security, Docker, PostgreSQL</description>
+	<description>Career Manager Tool using Spring Boot, Spring Data, Spring Security, Docker, PostgreSQL</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
