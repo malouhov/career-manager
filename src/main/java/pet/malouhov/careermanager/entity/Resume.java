@@ -28,7 +28,39 @@ public class Resume {
     private String description;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private Status status = Status.RESUME_SENT;
+
+    @Column(nullable = false)
     private LocalDate sent = LocalDate.now();
+
+    public enum Status {
+        RESUME_SENT,
+        RESUME_PENDING,
+        INTERVIEW_SCHEDULED,
+        RESUME_REJECTED
+
+    }
+
+
+    public static void main(String[] args) {
+
+
+        Resume resume = new Resume("Cber",
+                "Java Developer",
+                "Middle Java Dev.");
+
+        System.out.println(resume);
+
+        /*
+             Student student = new Student();
+     entityManager.persist(student);
+     ...
+     Student s = entityManager.find(Student.class, student.getStudentId());
+     System.out.println(s)
+     ...
+         */
+    }
 
 
 }
