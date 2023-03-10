@@ -13,6 +13,7 @@
 5. Add Validation to the DTO
 6. Add Views using Thymeleaf
 
+
 ## Technologies
 
 ## Description
@@ -24,5 +25,9 @@
 4. [Spring MVC - should my domain classes implement Serializable for over-the-wire transfer?](https://stackoverflow.com/questions/38457074/spring-mvc-should-my-domain-classes-implement-serializable-for-over-the-wire-t)</br>
 5. [LIKE Queries in Spring JPA Repositories](https://www.baeldung.com/spring-jpa-like-queries)</br>
 6. [Different between Query keywords Containing, IsContaining, Contains in Spring Data JPA](https://stackoverflow.com/questions/64814957/different-between-query-keywords-containing-iscontaining-contains-in-spring-da)</br>
-7. 
+7. [Replace a JPA entity with a DTO](https://techwithmaddy.com/replace-persistence-entity-with-a-dto-object)</br>
+
+9. подумать и удалить [Mapping JPA Entities into DTOs in Spring Boot Using MapStruct](https://auth0.com/blog/how-to-automatically-map-jpa-entities-into-dtos-in-spring-boot-using-mapstruct/)</br>
+8. [Quick Guide to MapStruct](https://www.baeldung.com/mapstruct)</br>
+9. [MapStruct 1.5.3.Final Reference Guide](https://mapstruct.org/documentation/stable/reference/html/#_set_up)</br>
 

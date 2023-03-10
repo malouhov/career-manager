@@ -2,11 +2,13 @@ package pet.malouhov.careermanager.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import java.time.LocalDate;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "resumes")
 public class Resume {
@@ -27,40 +29,19 @@ public class Resume {
     @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false)
     @Enumerated(EnumType.ORDINAL)
-    private Status status = Status.RESUME_SENT;
+    @Column(nullable = false)
+    private ResumeStatus resumeStatus = ResumeStatus.RESUME_SENT;
 
     @Column(nullable = false)
     private LocalDate sent = LocalDate.now();
 
-    public enum Status {
+    public enum ResumeStatus {
         RESUME_SENT,
         RESUME_PENDING,
         INTERVIEW_SCHEDULED,
         RESUME_REJECTED
 
     }
-
-
-    public static void main(String[] args) {
-
-
-        Resume resume = new Resume("Cber",
-                "Java Developer",
-                "Middle Java Dev.");
-
-        System.out.println(resume);
-
-        /*
-             Student student = new Student();
-     entityManager.persist(student);
-     ...
-     Student s = entityManager.find(Student.class, student.getStudentId());
-     System.out.println(s)
-     ...
-         */
-    }
-
 
 }
