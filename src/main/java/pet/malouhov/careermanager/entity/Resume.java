@@ -13,6 +13,19 @@ import java.time.LocalDate;
 @Table(name = "resumes")
 public class Resume {
 
+    /*
+    long id;
+    User employee;
+    Optional<List<Education>> educations;
+    Optional<List<Experience>> experiences;
+    Optional<List<Skill>> skills;
+    Optional<List<Certification>> certifications;
+    Optional<List<Award>> awards;
+    ResumeStatus status;
+    LocalDate created;
+    LocalDate updated;
+     */
+
     @Id
     @GeneratedValue
     private long id;
