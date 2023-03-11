@@ -38,9 +38,12 @@ public class DefaultResumeService implements ResumeService {
     public Resume update(Resume resume) throws ResumeNotFoundException {
         Resume updatedResume = resumeRepository.findById(resume.getId())
                 .orElseThrow(() -> new ResumeNotFoundException("Resume with {" + resume.getId() + "} not found."));
-        updatedResume.setCompany(resume.getCompany());
-        updatedResume.setVacancy(resume.getVacancy());
-        updatedResume.setDescription(resume.getDescription());
+        updatedResume.setEducations(resume.getEducations());
+        updatedResume.setExperiences(resume.getExperiences());
+        updatedResume.setSkills(resume.getSkills());
+        updatedResume.setCertifications(resume.getCertifications());
+        updatedResume.setAwards(resume.getAwards());
+        updatedResume.setStatus(resume.getStatus());
         return resumeRepository.save(updatedResume);
     }
 
@@ -83,16 +86,4 @@ public class DefaultResumeService implements ResumeService {
         resumeRepository.deleteAll();
     }
 
-    /**
-     * Поск подходящях для запроса объектов резюме (Resume).
-     * Поиск ведется по полю company.
-     * Строчные и прописные символы игнорируются.
-     *
-     * @param keyword - фрагмент, котрый искользуется как ключевое слово.
-     * @return - список объектов резюме (Resume), подходящих под критерии поиска.
-     */
-    @Override
-    public List<Resume> search(String keyword) {
-        return resumeRepository.findByCompanyContaining(keyword);
-    }
 }

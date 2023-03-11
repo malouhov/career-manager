@@ -1,13 +1,18 @@
 package pet.malouhov.careermanager.web.dto;
 
+import jakarta.validation.constraints.NotNull;
 import pet.malouhov.careermanager.entity.Resume.ResumeStatus;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-public record GetResumeDto(String company,
-                           String vacancy,
-                           String description,
-                           ResumeStatus resumeStatus,
-                           LocalDate sent) {
+public record GetResumeDto(@NotNull String employee,
+                           @NotNull String educations,
+                           @NotNull String experiences,
+                           @NotNull String skills,
+                           @NotNull String certifications,
+                           @NotNull String awards,
+                           @NotNull ResumeStatus status,
+                           @NotNull LocalDateTime created,
+                           @NotNull LocalDateTime updated) {
 
 }
