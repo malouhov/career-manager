@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -13,34 +15,57 @@ import java.time.LocalDate;
 @Table(name = "resumes")
 public class Resume {
 
+    /*
+    long id;
+    User employee;
+    Optional<List<Education>> educations;
+    Optional<List<Experience>> experiences;
+    Optional<List<Skill>> skills;
+    Optional<List<Certification>> certifications;
+    Optional<List<Award>> awards;
+    ResumeStatus status;
+    LocalDateTime created;
+    LocalDateTime updated;
+     */
+
     @Id
     @GeneratedValue
     private long id;
 
     @NonNull
     @Column(nullable = false)
-    private String company;
+    private String employee;
 
-    @NonNull
     @Column(nullable = false)
-    private String vacancy;
+    private String educations;
 
-    @NonNull
     @Column(nullable = false)
-    private String description;
+    private String experiences;
+
+    @Column(nullable = false)
+    private String skills;
+
+    @Column(nullable = false)
+    private String certifications;
+
+    @Column(nullable = false)
+    private String awards;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
-    private ResumeStatus resumeStatus = ResumeStatus.RESUME_SENT;
+    private ResumeStatus status = ResumeStatus.RESUME_NEW;
 
     @Column(nullable = false)
-    private LocalDate sent = LocalDate.now();
+    private LocalDateTime created = LocalDateTime.now();
+    @Column(nullable = false)
+    @UpdateTimestamp
+    private LocalDateTime updated = LocalDateTime.now();
 
     public enum ResumeStatus {
-        RESUME_SENT,
-        RESUME_PENDING,
-        INTERVIEW_SCHEDULED,
-        RESUME_REJECTED
+        RESUME_NEW,
+        RESUME_HIDDEN,
+        RESUME_ACTIVE,
+        RESUME_DELETED
 
     }
 
