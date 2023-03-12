@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pet.malouhov.careermanager.entity.Resume;
+import pet.malouhov.careermanager.exception.ControllerResumeExceptionMessage;
+import pet.malouhov.careermanager.exception.ControllerResumeNotFoundException;
 import pet.malouhov.careermanager.service.ResumeService;
 import pet.malouhov.careermanager.web.dto.GetResumeDto;
 import pet.malouhov.careermanager.web.dto.PostResumeDto;
@@ -19,7 +21,7 @@ import java.util.stream.Collectors;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/v1")
-public class ResumeRestController {
+public class ResumeController {
 
     private final ResumeService resumeService;
 
@@ -35,8 +37,14 @@ public class ResumeRestController {
     */
 
     @GetMapping("/test")
-    public String test() {
-        return "Api is alive";
+    public ResponseEntity<ControllerResumeExceptionMessage> test(
+            @RequestParam(required = false,
+                    defaultValue = "false") boolean isExceptionThrown)
+            throws ControllerResumeNotFoundException {
+        if (isExceptionThrown) {
+            throw new ControllerResumeNotFoundException("ResumeNotFoundException in test()");
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     /**
