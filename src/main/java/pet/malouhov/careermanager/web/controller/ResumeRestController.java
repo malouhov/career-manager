@@ -54,7 +54,7 @@ public class ResumeRestController {
     /**
      * Отправляет запрос на изменение объекта резюме (Resume) с заданным id.
      *
-     * @param id - идентификатор изменяемого объекта резюме (Resume).
+     * @param id              - идентификатор изменяемого объекта резюме (Resume).
      * @param updateResumeDto - Data Transfer Object, содержащий поля для изменения объекта резюме (Resume).
      * @return - Data Transfer Object объекта резюме (Resume).
      */

@@ -13,6 +13,7 @@ public record GetResumeDto(@NotNull String employee,
                            @NotNull String awards,
                            @NotNull ResumeStatus status,
                            @NotNull LocalDateTime created,
-                           @NotNull LocalDateTime updated) {
+                           @NotNull LocalDateTime updated,
+                           @NotNull String respondedVacancies) {
 
 }

@@ -9,6 +9,7 @@ public record UpdateResumeDto(@NotNull String employee,
                               @NotNull String skills,
                               @NotNull String certifications,
                               @NotNull String awards,
-                              @NotNull ResumeStatus status) {
+                              @NotNull ResumeStatus status,
+                              @NotNull String respondedVacancies) {
 
 }
