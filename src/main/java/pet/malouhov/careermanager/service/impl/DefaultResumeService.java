@@ -3,7 +3,7 @@ package pet.malouhov.careermanager.service.impl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pet.malouhov.careermanager.entity.Resume;
-import pet.malouhov.careermanager.exception.ResumeNotFoundException;
+import pet.malouhov.careermanager.exception.PersistenceResumeNotFoundException;
 import pet.malouhov.careermanager.repository.ResumeRepository;
 import pet.malouhov.careermanager.service.ResumeService;
 
@@ -35,9 +35,9 @@ public class DefaultResumeService implements ResumeService {
      * @return - измененный объект резюме (Resume).
      */
     @Override
-    public Resume update(Resume resume) throws ResumeNotFoundException {
+    public Resume update(Resume resume) throws PersistenceResumeNotFoundException {
         Resume updatedResume = resumeRepository.findById(resume.getId())
-                .orElseThrow(() -> new ResumeNotFoundException("Resume with {" + resume.getId() + "} not found."));
+                .orElseThrow(() -> new PersistenceResumeNotFoundException("Resume with {" + resume.getId() + "} not found."));
         updatedResume.setEducations(resume.getEducations());
         updatedResume.setExperiences(resume.getExperiences());
         updatedResume.setSkills(resume.getSkills());
