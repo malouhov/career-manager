@@ -12,11 +12,11 @@ import java.time.LocalDateTime;
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(ControllerResumeNotFoundException.class)
-    public ResponseEntity<ControllerResumeExceptionMessage> handleResumeNotFound(
+    public ResponseEntity<ControllerResumeExceptionResponse> handleResumeNotFound(
             ControllerResumeNotFoundException exception,
             WebRequest request) {
 
-        ControllerResumeExceptionMessage body = new ControllerResumeExceptionMessage(
+        ControllerResumeExceptionResponse body = new ControllerResumeExceptionResponse(
                 LocalDateTime.now(),
                 HttpStatus.NOT_FOUND.value(),
                 exception.getMessage(),
