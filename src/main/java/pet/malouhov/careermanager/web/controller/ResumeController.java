@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pet.malouhov.careermanager.entity.Resume;
-import pet.malouhov.careermanager.exception.ControllerResumeExceptionMessage;
+import pet.malouhov.careermanager.exception.ControllerResumeExceptionResponse;
 import pet.malouhov.careermanager.exception.ControllerResumeNotFoundException;
 import pet.malouhov.careermanager.service.ResumeService;
 import pet.malouhov.careermanager.web.dto.GetResumeDto;
@@ -37,7 +37,7 @@ public class ResumeController {
     */
 
     @GetMapping("/test")
-    public ResponseEntity<ControllerResumeExceptionMessage> test(
+    public ResponseEntity<ControllerResumeExceptionResponse> test(
             @RequestParam(required = false,
                     defaultValue = "false") boolean isExceptionThrown)
             throws ControllerResumeNotFoundException {

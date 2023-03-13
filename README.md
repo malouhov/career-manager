@@ -1,4 +1,5 @@
 ## Introduction
+I`m exited to introduce you my journey through Java and Spring technologies to Software Engineer knowledge and experience.  
 
 ## Main goals
 
